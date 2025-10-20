@@ -91,27 +91,29 @@ Edit the `socials` array in `src/lib/components/Footer.svelte`.
 
 ### Deploy to Railway
 
-1. Install Railway CLI:
-```bash
-npm install -g @railway/cli
-```
+1. Push your code to GitHub (already done!)
 
-2. Login to Railway:
-```bash
-railway login
-```
+2. Go to [Railway](https://railway.app) and create a new project
 
-3. Initialize and deploy:
-```bash
-railway init
-railway up
-```
+3. Select "Deploy from GitHub repo" and choose `corbynfang/portfolio`
 
-4. Set build and start commands in Railway dashboard:
-   - **Build Command**: `npm run build`
-   - **Start Command**: `node build`
+4. Railway will automatically:
+   - Detect Node.js/SvelteKit
+   - Run `npm run build`
+   - Start with `npm start`
+   - Deploy your site!
 
-Your site will be live at your Railway subdomain!
+Your site will be live at your Railway subdomain (e.g., `yourproject.up.railway.app`)
+
+### Custom Domain Setup (corbyn.dev)
+
+See **[DOMAIN-SETUP.md](DOMAIN-SETUP.md)** for complete instructions on connecting your custom domain.
+
+**Quick steps:**
+1. Add custom domain in Railway dashboard
+2. Add DNS A or CNAME record to your domain registrar
+3. Wait 15-30 minutes for DNS propagation
+4. Your site will be live at `https://corbyn.dev`! 🎉
 
 ### Environment Variables
 
