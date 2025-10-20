@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-vercel";
+import adapter from "@sveltejs/adapter-node";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -8,10 +8,8 @@ const config = {
   preprocess: vitePreprocess(),
 
   kit: {
-    // adapter-vercel for Vercel deployment
-    adapter: adapter({
-      runtime: "nodejs20.x",
-    }),
+    // adapter-node for Node.js deployment (Railway, etc.)
+    adapter: adapter(),
     alias: {
       $data: "src/data",
       $lib: "src/lib",

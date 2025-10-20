@@ -6,10 +6,12 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
+    "start": "node build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
   },
   "devDependencies": {
+    "@sveltejs/adapter-node": "^5.4.0",
     "@sveltejs/adapter-vercel": "^5.4.8",
     "@sveltejs/kit": "^2.11.1",
     "@sveltejs/vite-plugin-svelte": "^4.0.3",
