@@ -1,129 +1,142 @@
-# Corbyn's Portfolio
+# Portfolio Website
 
-A minimalist developer portfolio built with SvelteKit, inspired by [davis7.sh](https://davis7.sh).
+A clean, minimalist portfolio built with **SvelteKit** and **Tailwind CSS**. Features markdown-based project documentation, animated UI elements, and a dark gradient theme.
 
-## What's Included
+## 🚀 Features
 
-- **Home Page** - Hero section with your intro + featured projects
-- **Projects Page** - Grid of all your projects
-- **Project Details** - Individual pages for each project with markdown content
-- **Contact Page** - Simple page with your email and social links
+- **Markdown Support** - Write project documentation in markdown with syntax highlighting
+- **Dynamic Routing** - Automatic project pages from markdown files
+- **Animated Links** - Smooth underline animations on hover
+- **Responsive Design** - Mobile-friendly layout
+- **Dark Theme** - Beautiful gradient background with radial overlays
+- **Fast & Modern** - Built with SvelteKit and Vite
 
-## Tech Stack
-
-- **SvelteKit** - Web framework
-- **TailwindCSS** - Styling
-- **Marked** - Markdown parser
-- **Shiki** - Syntax highlighting for code blocks
-
-## Getting Started
-
-### 1. Install Dependencies
-
-```bash
-npm install
-```
-
-### 2. Start Development Server
-
-```bash
-npm run dev
-```
-
-Visit: http://localhost:5173
-
-That's it! No backend setup needed.
-
-## Customize Your Portfolio
-
-### Update Personal Info
-
-**Your name and bio:**
-- Edit `src/lib/components/Hero.svelte`
-
-**Your email and social links:**
-- Edit `src/lib/components/Footer.svelte`
-- Edit `src/routes/contact/+page.svelte`
-
-### Add Your Projects
-
-1. **Add project metadata** in `src/data/projects.js`:
-
-```javascript
-{
-  slug: 'my-project',
-  title: 'My Project',
-  description: 'Short description',
-  tags: ['React', 'TypeScript'],
-  github: 'https://github.com/yourusername/project',
-  demo: 'https://demo.com', // optional
-  featured: true
-}
-```
-
-2. **Create markdown file** at `src/content/projects/my-project.md`:
-
-```markdown
-# My Project
-
-Full description with code examples...
-```
-
-The project will automatically appear on your site!
-
-### Change Colors
-
-Edit `tailwind.config.js`:
-
-```javascript
-colors: {
-  accent: '#00ff88',  // Change to your color
-}
-```
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 portfolio/
 ├── src/
-│   ├── routes/              # Pages
-│   │   ├── +page.svelte     # Home
-│   │   ├── projects/        # Projects pages
-│   │   └── contact/         # Contact page
+│   ├── content/              # Markdown files for projects
+│   │   ├── pamela-chess-engine.md
+│   │   └── cdl-website.md
 │   ├── lib/
-│   │   ├── components/      # Reusable components
-│   │   └── utils/           # Markdown renderer
-│   ├── data/
-│   │   └── projects.js      # Your projects data
-│   └── content/
-│       └── projects/        # Markdown files
-├── static/                  # Static files
+│   │   └── components/       # Reusable Svelte components
+│   │       ├── Hero.svelte
+│   │       ├── Footer.svelte
+│   │       └── MarkdownRenderer.svelte
+│   ├── routes/
+│   │   ├── +page.svelte      # Homepage
+│   │   └── projects/[slug]/  # Dynamic project pages
+│   └── app.css               # Global styles
+├── static/                   # Static assets
 └── package.json
 ```
 
-## Deploy to Vercel
+## 🛠️ Tech Stack
 
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Deploy!
+- **SvelteKit** - Web framework
+- **Tailwind CSS** - Utility-first styling
+- **Marked** - Markdown parser
+- **Vite** - Build tool
+- **Vercel Adapter** - Deployment
 
-That's it - no environment variables or backend setup needed.
-
-## Available Commands
+## 📦 Installation
 
 ```bash
-npm run dev      # Start dev server
-npm run build    # Build for production
-npm run preview  # Preview production build
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-## Customize Further
+## 🎨 Customization
 
-- Update the font in `src/app.css` (currently JetBrains Mono)
-- Modify component styles in `src/app.css`
-- Add more pages in `src/routes/`
+### Add a New Project
+
+1. Create a markdown file in `src/content/`:
+```bash
+src/content/my-project.md
+```
+
+2. Add project to `src/lib/components/Hero.svelte`:
+```javascript
+const projects = [
+  {
+    title: "My Project",
+    url: "/projects/my-project",
+    description: "Project description here",
+    isInternal: true
+  }
+];
+```
+
+3. Visit `/projects/my-project` - Done! 🎉
+
+### Update Colors
+
+Edit `tailwind.config.js` to change the color scheme.
+
+### Update Social Links
+
+Edit the `socials` array in `src/lib/components/Footer.svelte`.
+
+## 🌐 Deployment
+
+### Deploy to Vercel
+
+```bash
+npm run build
+```
+
+Then push to GitHub and connect to Vercel. The adapter is already configured!
+
+### Deploy to Other Platforms
+
+Change the adapter in `svelte.config.js` to match your platform:
+- `@sveltejs/adapter-netlify`
+- `@sveltejs/adapter-cloudflare`
+- `@sveltejs/adapter-node`
+
+## 📝 Writing Markdown
+
+Your markdown files support:
+
+- Headings (`# ## ###`)
+- **Bold** and *italic* text
+- Code blocks with syntax highlighting
+- Lists (ordered and unordered)
+- Links with animated underlines
+- Blockquotes
+- And more!
+
+Example:
+
+```markdown
+# My Project
+
+This is **awesome**!
+
+## Code Example
+\`\`\`javascript
+console.log('Hello World!');
+\`\`\`
+```
+
+## 🤝 Contributing
+
+Feel free to fork and customize for your own portfolio!
+
+## 📄 License
+
+MIT License - feel free to use this for your own portfolio!
 
 ---
 
-Built with SvelteKit 🚀
+Built with ❤️ using SvelteKit
