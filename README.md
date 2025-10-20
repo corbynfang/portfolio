@@ -38,7 +38,7 @@ portfolio/
 - **Tailwind CSS** - Utility-first styling
 - **Marked** - Markdown parser
 - **Vite** - Build tool
-- **Vercel Adapter** - Deployment
+- **Node.js** - Runtime environment
 
 ## 📦 Installation
 
@@ -89,45 +89,33 @@ Edit the `socials` array in `src/lib/components/Footer.svelte`.
 
 ## 🌐 Deployment
 
-### Deploy to Vercel
+### Deploy to Railway
 
+1. Install Railway CLI:
 ```bash
-npm run build
+npm install -g @railway/cli
 ```
 
-Then push to GitHub and connect to Vercel. The adapter is already configured!
-
-### Deploy to Other Platforms
-
-Change the adapter in `svelte.config.js` to match your platform:
-- `@sveltejs/adapter-netlify`
-- `@sveltejs/adapter-cloudflare`
-- `@sveltejs/adapter-node`
-
-## 📝 Writing Markdown
-
-Your markdown files support:
-
-- Headings (`# ## ###`)
-- **Bold** and *italic* text
-- Code blocks with syntax highlighting
-- Lists (ordered and unordered)
-- Links with animated underlines
-- Blockquotes
-- And more!
-
-Example:
-
-```markdown
-# My Project
-
-This is **awesome**!
-
-## Code Example
-\`\`\`javascript
-console.log('Hello World!');
-\`\`\`
+2. Login to Railway:
+```bash
+railway login
 ```
+
+3. Initialize and deploy:
+```bash
+railway init
+railway up
+```
+
+4. Set build and start commands in Railway dashboard:
+   - **Build Command**: `npm run build`
+   - **Start Command**: `node build`
+
+Your site will be live at your Railway subdomain!
+
+### Environment Variables
+
+No environment variables required for basic deployment.
 
 ## 🤝 Contributing
 
